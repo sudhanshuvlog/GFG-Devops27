@@ -1,0 +1,7 @@
+[Unit]
+Description=My Stress 2 Command For CPU
+
+[Service]
+ExecStart=dd if=/dev/zero  of=/dev/null
+MemoryLimit=100M
+CPUShares=2048
