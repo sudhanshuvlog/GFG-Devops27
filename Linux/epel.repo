@@ -1,0 +1,6 @@
+[epel]
+name=Extra Packages for Enterprise Linux 7 - $basearch
+baseurl=https://download.fedoraproject.org/pub/epel/7/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
