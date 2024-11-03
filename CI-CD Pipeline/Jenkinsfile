@@ -1,0 +1,43 @@
+pipeline {
+    agent{
+        label "ec2"
+        }
+    stages {
+        stage('Downloading the source code- job1') { //stage is similiar to your job
+            steps {
+
+                git branch: 'main', url: 'https://github.com/Trainersudhanshu/my-flask-app.git'
+
+                echo 'code downloaded succesfully'
+
+            }
+
+        }
+        stage('Test - job2'){
+            steps {
+                sh 'yum install python3-pip -y'
+                sh 'pip3 install -r requirements.txt'
+                sh 'pytest'
+                echo 'code have been succesfully tested'
+
+            }
+
+        }
+
+        stage("Build Docker Image - job3"){
+            steps{
+                sh 'docker build -t gfgwebimg .'
+            }
+
+        }
+        stage("Deployment - job4"){
+            steps{
+                sh 'docker run -dit --name webos -p 80:80 gfgwebimg'
+
+            }
+
+        }
+
+    }
+
+}
