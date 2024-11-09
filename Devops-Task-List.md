@@ -108,3 +108,28 @@
 
         - A fully functional web application running on EC2.
         - A Lambda function that stores images in S3, integrates with Rekognition, and sends SNS alerts in case of failure.
+
+## Task-5: Serverless Automation for Data Transformation and Storage With Docker
+
+- Build a containerized data transformation application that fetches raw data from S3, processes it, and stores transformed data in another S3 bucket.
+
+- Task Details:
+    - Initialize Git: Set up a Git repository to track transformation scripts,         
+      configuration files, and Docker-related files.
+
+    - Scripts: Write shell scripts to:
+        - Fetch raw data files from an S3 bucket.
+        - Transform the data (e.g., convert JSON to CSV, filter data fields).
+        - Store the transformed data in a different S3 bucket.
+
+    - Dockerize the Transformation Tool:
+        - Create a Dockerfile that:
+        - Installs AWS CLI and data transformation tools (e.g., csvkit for CSV processing).
+        - Copies the transformation shell scripts into the container.
+        - Configures environment variables for source and target S3 buckets, AWS credentials, and transformation settings.
+
+    - Run and Test:
+        - Run the container with sample raw data in S3, verifying that it fetches, transforms, and stores data as expected.
+        - Set up automation with jenkins to process new data at scheduled intervals.
+
+    - Documentation: Document setup instructions, example data transformations, and S3  bucket configurations.
