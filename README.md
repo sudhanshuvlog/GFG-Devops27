@@ -10,3 +10,4 @@ https://github.com/sudhanshuvlog/GFG-Devops27/tree/main/AWS
 - Sample Java Application I used with Maven In the session- https://github.com/Trainersudhanshu/sample-java-app/tree/main
 - Snake Game Repo With Dockerfile & Jenkinsfile - https://github.com/sudhanshuvlog/SnakeGame/tree/main
 - Movie Streaming App - https://github.com/sudhanshuvlog/Movie-Streaming-App-DevOps
+- K8s MERN App Deployment on EKS Cluster - https://github.com/sudhanshuvlog/K8s-MERN-App-Deployment/tree/main
