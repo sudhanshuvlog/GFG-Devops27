@@ -1,0 +1,8 @@
+region: ap-south-1
+instance_type: t2.micro
+security_group: default
+key_name: ansiblenewkey30nov
+aws_ami: ami-0614680123427b75e
+name: myos1-launchedByAnsible
+subnet_id: subnet-0e64ffc947ac8929c
+count: 3

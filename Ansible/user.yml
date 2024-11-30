@@ -1,0 +1,12 @@
+- hosts: all
+  tasks:
+    - name: "create group"
+      ansible.builtin.group:
+        name: admin
+        state: present
+    - name: "create user"
+      ansible.builtin.user:
+        name: johnd
+        comment: John Doe
+        uid: 1040
+        group: admin

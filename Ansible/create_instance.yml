@@ -1,0 +1,40 @@
+[root@ip-172-31-9-19 ansible]# cat create_instance.yml 
+- hosts: localhost
+  vars_files:
+    - aws_credential.yml
+    - instance_vars.yml
+  tasks:
+    - name: install pip3
+      package:
+        name: python3-pip
+        state: present
+
+    - name: install my python dependencies
+      pip:
+        name: boto3
+
+    - community.aws.ec2_instance:
+        aws_access_key: "{{ aws_access_key }}"
+        secret_key: "{{ aws_secret_key }}"
+        region: "{{ region }}"
+        vpc_subnet_id: "{{ subnet_id }}"
+        instance_type: "{{ instance_type }}"
+        image_id: "{{ aws_ami }}"
+        key_name: "{{ key_name }}"
+        name: "{{ name }}"
+        count: "{{ count }}"
+        security_group: "{{ security_group }}"
+      register: ec2
+
+    - debug:
+        var: ec2
+
+    - set_fact:
+        ec2_ips : "{{ ec2.instances | map(attribute='private_ip_address') | list }}"
+
+    - debug:
+        var : ec2_ips
+
+    - template:
+        src: inventory.j2
+        dest: inventory

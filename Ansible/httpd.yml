@@ -1,0 +1,42 @@
+- hosts: all
+  vars:
+    packages:
+      - httpd
+      - php
+      - python
+      - docker
+      - nginx
+      - vim
+  tasks:
+    - name: "Install packages"
+      package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}"
+      tags:
+        - install
+
+    - name: "copy webpages"
+      copy:
+        src: /ansible/index.html
+        dest: /var/www/html
+        owner: root
+        group: root
+      tags:
+        - copy
+
+    - name: "copy httpd config files"
+      copy:
+        src: "httpd.conf"
+        dest: /etc/httpd/conf/
+      notify:
+        - restart server
+      tags:
+        - config
+    
+  handlers:
+
+    - name: "restart server"
+      service:
+        name: httpd
+        state: restarted
