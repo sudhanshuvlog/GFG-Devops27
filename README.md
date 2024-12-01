@@ -11,3 +11,4 @@ https://github.com/sudhanshuvlog/GFG-Devops27/tree/main/AWS
 - Snake Game Repo With Dockerfile & Jenkinsfile - https://github.com/sudhanshuvlog/SnakeGame/tree/main
 - Movie Streaming App - https://github.com/sudhanshuvlog/Movie-Streaming-App-DevOps
 - K8s MERN App Deployment on EKS Cluster - https://github.com/sudhanshuvlog/K8s-MERN-App-Deployment/tree/main
+- K8s Multi-Node Cluster Configuration With Ansible - https://github.com/sudhanshuvlog/kubernetes-multinode-cluster-ansible-aws/tree/main
