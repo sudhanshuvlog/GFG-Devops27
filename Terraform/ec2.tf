@@ -1,6 +1,6 @@
 resource "aws_instance" "web" { 
     #web - a unique refrence/name
-  ami           = var.amiId
+  ami           = data.aws_ami.amiId.id
   instance_type = var.instanceType
   key_name = aws_key_pair.gfg-key.key_name
   subnet_id = aws_subnet.mysubnet.id
@@ -8,7 +8,7 @@ resource "aws_instance" "web" {
     Name = "HelloWorld"
   }
   vpc_security_group_ids = [aws_security_group.mysg.id]
-  count =3 #meta argument
+  count =4 #meta argument
 }
 
 
@@ -37,5 +37,17 @@ resource "aws_security_group" "mysg" {
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
+  }
+}
+
+
+
+resource "null_resource" "my-null-resource-gfg" {
+  # configuration of existing resource
+  triggers = {
+    always_run=timestamp()
+  }
+  provisioner "local-exec" {
+    command = "echo hi"
   }
 }

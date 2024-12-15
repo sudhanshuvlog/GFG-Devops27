@@ -18,10 +18,11 @@ variable "InterneteGatewayName"{
     default = "gfgigw"
 }
 
-variable "amiId" {
-    default = "ami-0614680123427b75e"
+# variable "amiId" {
+#     
+#     #default = "ami-0614680123427b75e"
   
-}
+# }
 
 variable "instanceType" {
     default = "t2.micro"
@@ -42,4 +43,7 @@ variable "allowedPorts" {
     type = list
     default = [80, 8080, 90, 82, 9090, 3000, 83, 22, 9100, 9104, 443]
   
+}
+variable "bucketName" {
+  default ="mygfg27newbucket123"
 }
