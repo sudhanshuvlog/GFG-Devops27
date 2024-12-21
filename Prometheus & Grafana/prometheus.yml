@@ -27,3 +27,17 @@ scrape_configs:
 
     static_configs:
       - targets: ["localhost:9090"]
+
+  - job_name: "ec2-server metrics"
+    static_configs:
+      - targets: ["35.154.129.99:9100"]
+
+  - job_name: "docker engine metrics"
+    static_configs:
+      - targets: ["35.154.129.99:9323"]
+        labels:
+          region: "delhi"
+          env: "prod"
+  - job_name: "Mysql DB"
+    static_configs:
+      - targets: ["43.205.194.105:8081"]
