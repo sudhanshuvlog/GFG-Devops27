@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-exporter
+  labels:
+    app: mysql-exporter
+spec:
+  type: NodePort
+  ports:
+  - name: metrics
+    port: 9104
+    targetPort: 9104
+    nodePort: 31000  # Specify the nodePort value you prefer
+  selector:
+    app: mysql
